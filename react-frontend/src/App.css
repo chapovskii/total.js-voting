@@ -1,0 +1,159 @@
+.App {
+  background-color: #f7f9fa;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.poll-list,
+.poll-details {
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.poll-list button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 5px;
+  margin: 5px 0;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+}
+.poll-details ul li {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+}
+.create-poll {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.create-poll h2 {
+  margin-bottom: 10px;
+}
+
+.create-poll label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-poll input,
+.create-poll textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.create-poll button {
+  background-color: #168541;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-poll button:hover {
+  background-color: #168541;
+}
+.option-text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  color: #168541;
+}
+
+button {
+  background-color: #168541;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li.poll-item {
+  display: flex;
+  align-items: center;
+}
+
+.poll-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poll-list .option-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #168541;
+  margin-right: 10px;
+}
+
+.poll-list .poll-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input-container {
+  width: 360px;
+}
