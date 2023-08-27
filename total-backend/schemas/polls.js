@@ -1,9 +1,6 @@
 const pg = require("pg");
 
 NEWSCHEMA("Polls", function (schema) {
-  schema.define("question", "String(500)", true);
-  schema.define("options", "JSON", true);
-
   const pool = new pg.Pool({
     user: "main",
     host: "dpg-cj4hicdgkuvsl0cd5bog-a.frankfurt-postgres.render.com",
@@ -34,24 +31,22 @@ NEWSCHEMA("Polls", function (schema) {
     const params = $.params;
 
     const result = await pool.query(
-      "SELECT id, question, options FROM polls WHERE id = $1",
+      "SELECT option_index, votes FROM results WHERE poll_id = $1",
       [params.id]
     );
 
-    if (result.rows.length === 0) {
-      return $.error(404);
-    }
-
-    $.callback(result.rows[0]);
+    $.callback(result.rows);
   });
 
-  schema.action("vote", async function ($) {
+  schema.addWorkflow("vote", async function ($) {
     const params = $.params;
-    const { optionIndex, optionText } = $.body;
+    const { options } = $.params;
+
+    const optionIndex = parseInt(options);
 
     await pool.query(
-      "INSERT INTO results (poll_id, option, votes) VALUES ($1, $2, 1) ON CONFLICT (poll_id, option) DO UPDATE SET votes = results.votes + 1",
-      [params.id, optionText]
+      "INSERT INTO results (poll_id, option_index, votes) VALUES ($1, $2, 1) ON CONFLICT (poll_id, option_index) DO UPDATE SET votes = results.votes + 1",
+      [parseInt(params.id), optionIndex]
     );
     $.success();
   });
